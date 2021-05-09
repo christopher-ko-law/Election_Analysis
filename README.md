@@ -18,7 +18,7 @@ To complete the election audit of a recent local congressional election in Color
 
 ## Election-Audit Results
 The result of the script is show below:
-![Election Audit Results](Resources/election_results.png)
+![Election Audit Results](Resources/election_results.png | width=50% height=50%)
 
 The analysis of the election results show that:
 * There were 369,711 total votes cast in this congressional election
