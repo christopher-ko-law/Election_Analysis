@@ -17,7 +17,10 @@ To complete the election audit of a recent local congressional election in Color
 - Software: Python 3.7.6, Visual Studio Code 1.56.0
 
 ## Election-Audit Results
-The analysis of the election show that:
+The result of the script is show below:
+![Election Audit Results](Resources/election_results.png)
+
+The analysis of the election results show that:
 * There were 369,711 total votes cast in this congressional election
 
 ### Counties Analysis
@@ -37,6 +40,26 @@ The analysis of the election show that:
 
 
 ## Election-Audit Summary
+This script was used to audit a local congressional election in Colorado. However, this script can be re-used for any other elections provided that the input file (Resources/election_analysis.csv) has the same structure and type of data. The following sections explore how we can do this by slightly modifying the script:
 
+### Modification 1 - Add user prompt for Input File
+This script currently takes input from one file. In order to audit another election, this file must be overwritten with data from the other election. 
+If the input data must be saved for later use / re-run again, one can prompt the user for a file name to read.
+The following code can be modified here:
+```
+# Add a variable to load a file from a path.
+file_name_to_read = input("Enter the name of the file to be read, including extension:")
+file_to_load = os.path.join("Resources", file_name_to_read)
+```
+We replace the hardcoded "election_results.csv" with the input from the user. This would be useful in the event of multiple elections that need to be audited.
+Further modification to make this more user friendly could be made by automatically reading through all csv files in the Resources folder.
 
-Election-Audit Summary: In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
+### Modification 2 - Modify output file to match name of input file.
+Thie script currently outputs to one file. This file is constantly being overwritten at the end of the script. In order to make this script more user friendly, we could automatically change the output file name based on the input. Used in conjunction with Modification 1 above, the code block would be the following:
+```
+# Split input file name to remove .csv at the end of filename
+split_file_name = file_name_to_read.split(".")
+# Add a variable to save the file to a path.
+file_to_save = os.path.join("analysis", split_file_name[0]+"_analysis.txt")
+```
+The hardcoded "election_analysis.txt"is replaced in favour of a variable, which changes based on input file name. 
