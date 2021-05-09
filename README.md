@@ -18,6 +18,7 @@ To complete the election audit of a recent local congressional election in Color
 
 ## Election-Audit Results
 The result of the script is show below:
+
 ![Election Audit Results](Resources/election_results.png)
 
 The analysis of the election results show that:
